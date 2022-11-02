@@ -1,0 +1,15 @@
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\bin\Debug\net6.0\Projekt_PP_UMG.exe
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\bin\Debug\net6.0\Projekt_PP_UMG.deps.json
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\bin\Debug\net6.0\Projekt_PP_UMG.runtimeconfig.json
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\bin\Debug\net6.0\Projekt_PP_UMG.dll
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\bin\Debug\net6.0\Projekt_PP_UMG.pdb
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.csproj.AssemblyReference.cache
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.AssemblyInfoInputs.cache
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.AssemblyInfo.cs
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.csproj.CoreCompileInputs.cache
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.dll
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\refint\Projekt_PP_UMG.dll
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.pdb
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.genruntimeconfig.cache
+C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\ref\Projekt_PP_UMG.dll
