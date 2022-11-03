@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\bin\\Debug",
+    "\\bin\\Debug\\net6.0",
+    "\\bin\\Debug\\net6.0\\AbonamentyInfo",
+    "\\bin\\Debug\\net6.0\\Klienci"
   ],
-  "SelectedNode": "\\Program.cs",
+  "SelectedNode": "\\Projekt_PP_UMG.csproj",
   "PreviewInSolutionExplorer": false
 }
