@@ -3,13 +3,13 @@ using System.Runtime.CompilerServices;
 
 namespace Projekt_PP_UMG
 {
-    /*      WAŻNE !!!
-      forma nazw plików :     (ID).bin
+    /*
+               WAŻNE !!!
+              
+       forma nazw plików : (ID).bin
 
        nazwa folderu klienta - ID klienta
     */
-
-    // ZMIANAnananana
 
     public static class FunkcjeAutomatyczne
     {
@@ -65,10 +65,33 @@ namespace Projekt_PP_UMG
 
             return Directory.GetDirectories(ścieżka).Length;
         }
+        
+        public static int NajwiększeIDUrzytkowników()           // ID z danych logowania; pracownicy i admini nie mają własnego folderu klient
+        {
+            int ID = 0;       // minimalne ID - 1
+            string ścieżka = ŚcieżkaFolderu("DaneLogowania");
+
+            if (Directory.Exists(ścieżka))
+            {
+                foreach (string pk in Directory.GetFiles(ścieżka, "*.bin"))
+                {
+                    string FN = pk.Replace(".bin", "");
+                    FN = FN.Replace(ścieżka+"\\", "");
+
+                    int id1 = int.Parse(FN);
+                    if (ID < id1)
+                    {
+                        ID = id1;
+                    }
+                }
+            }
+
+            return ID;
+        }
 
         public static int NajwiększeIDKlientów()
         {
-            int ID = 0;       // minimalne ID
+            int ID = 0;       // minimalne ID - 1
             string ścieżka = ŚcieżkaFolderu("Klienci");
 
             foreach (string kl in Directory.GetDirectories(ścieżka))
@@ -89,7 +112,7 @@ namespace Projekt_PP_UMG
         /// <returns></returns>
         public static int NajwiększeIDPrzedmiotuKlienta(int IDklienta, string rodzajPrzedmiotu)
         {
-            int ID = 0;       // minimalne ID
+            int ID = 0;       // minimalne ID - 1
             string ścieżka = ŚcieżkaFolderu((rodzajPrzedmiotu+"Klienta"), IDklienta);
 
             if (Directory.Exists(ścieżka))
@@ -118,7 +141,7 @@ namespace Projekt_PP_UMG
         /// <returns></returns>
         public static int NajwiększeIDOferty(string rodzajPrzedmiotu)
         {
-            int ID = 0;       // minimalne ID
+            int ID = 0;       // minimalne ID - 1
             string ścieżka = ŚcieżkaFolderu(rodzajPrzedmiotu+"Info");
 
             if (Directory.Exists(ścieżka))
@@ -144,14 +167,16 @@ namespace Projekt_PP_UMG
     #region Struktury danych
     public class UrządzeniaInfo
     {
-        public UrządzeniaInfo()
+        public UrządzeniaInfo(int tempID = -1)
         {
-            int tempID = 1;
-            // automatycznie przypisuje ID (pierwsze 3 liczby zależne od klasy, reszta zwiększona o 1 od największego ID z tego typu)
+            if (tempID == -1)
+            {
+                tempID = FunkcjeAutomatyczne.NajwiększeIDOferty("Urządzenia") + 1;      // automatycznie przypisuje ID zwiększone o 1 od największego ID z tego typu, jeśli nie sprecyzowano jakie ma być
+            }
             this.IDvalue = tempID;
         }
 
-        private int IDvalue = 0;
+        private int IDvalue = 1;
 
         public int ID
         {
@@ -162,19 +187,21 @@ namespace Projekt_PP_UMG
         public double Cena;
         public string Nazwa;
         public string Wytwórca;
-        public string?[] Kolory;                                        // niewymagane
-        public string?[] Warianty;                                      // niewymagane
+        public string[]? Kolory;                                        // niewymagane
+        public string[]? Warianty;                                      // niewymagane
     }
     public class AbonamentyInfo
     {
-        public AbonamentyInfo()
+        public AbonamentyInfo(int tempID = -1)
         {
-            int tempID = 1;
-            // automatycznie przypisuje ID (pierwsze 3 liczby zależne od klasy, reszta zwiększona o 1 od największego ID z tego typu)
+            if (tempID == -1)
+            {
+                tempID = FunkcjeAutomatyczne.NajwiększeIDOferty("Abonamenty") + 1;      // automatycznie przypisuje ID zwiększone o 1 od największego ID z tego typu, jeśli nie sprecyzowano jakie ma być
+            }
             this.IDvalue = tempID;
         }
 
-        private int IDvalue = 0;
+        private int IDvalue = 1;
 
         public int ID
         {
@@ -183,21 +210,23 @@ namespace Projekt_PP_UMG
         }
 
         public string Nazwa;
-        public string CzęstotliwośćRozliczania;
+        public string CzęstotliwośćRozliczania;                       // zakładam możliwości: tyg, msc, rok (każde ma 3 litery dla łatwości póżniejszego sprawdzania)
         public double Cena;
-        public double[]? internet;                                      // niewymagane
-        public string?[] Warianty;                                      // niewymagane
+        public double LimitInternetu = 0;                             // 0 dla braku, -1 dla nielimitowanego, >0 dla normalneog limitu
+        public double[] LimityInternetu = {0, 0};                    // prędkość przed i po wyczerpaniu limitu
     }
     public class PakietyInfo
     {
-        public PakietyInfo()
+        public PakietyInfo(int tempID = -1)
         {
-            int tempID = 1;
-            // automatycznie przypisuje ID (pierwsze 3 liczby zależne od klasy, reszta zwiększona o 1 od największego ID z tego typu)
+            if (tempID == -1)
+            {
+                tempID = FunkcjeAutomatyczne.NajwiększeIDOferty("Pakiety") + 1;      // automatycznie przypisuje ID zwiększone o 1 od największego ID z tego typu, jeśli nie sprecyzowano jakie ma być
+            }
             this.IDvalue = tempID;
         }
 
-        private int IDvalue = 0;
+        private int IDvalue = 1;
 
         public int ID
         {
@@ -207,20 +236,23 @@ namespace Projekt_PP_UMG
 
         public double Cena;
         public string Nazwa;
-        public string Wytwórca;
-        public string?[] Kolory;                                        // niewymagane
-        public string?[] Warianty;                                      // niewymagane
+        public int[] TelefonyID;                                             // ID brane z oferty
+        public int AbonamentID;
+        public double CzasTrwania;                                           // Na ile opłaca abonament, wyrażane w ilości "cykli" abonamentu (np. tygodni jeśli opłacany tygodniowo)
+        public double Przecena = 0;                                          // przecena na abonament, w ułamku diesiętnym, 0 dla braku
     }
     public class DaneLogowania
     {
-        public DaneLogowania()
+        public DaneLogowania(int tempID = -1)
         {
-            int tempID = 1;
-            // automatycznie przypisuje ID (pierwsze 3 liczby zależne od klasy, reszta zwiększona o 1 od największego ID z tego typu)
+            if (tempID == -1)
+            {
+                tempID = FunkcjeAutomatyczne.NajwiększeIDUrzytkowników() + 1;
+            }
             this.IDvalue = tempID;
         }
 
-        private int IDvalue = 0;
+        private int IDvalue = 1;
 
         public int ID
         {
@@ -375,25 +407,14 @@ namespace Projekt_PP_UMG
 
         static void Main(string[] args)
         {
-            Console.WriteLine(FunkcjeAutomatyczne.NajwiększeIDOferty("Abonamenty"));
+            //Console.WriteLine(FunkcjeAutomatyczne.NajwiększeIDOferty("Abonamenty"));
 
-            Console.WriteLine(FunkcjeAutomatyczne.NajwiększeIDPrzedmiotuKlienta(112,"Urządzenia"));
+            //Console.WriteLine(FunkcjeAutomatyczne.NajwiększeIDPrzedmiotuKlienta(112,"Urządzenia"));
 
-            Console.WriteLine(Directory.GetCurrentDirectory());
-            #region Test1
-            DateTime wiek = new DateTime();
-            DateTime now = DateTime.Now;
+            //Console.WriteLine(Directory.GetCurrentDirectory());
 
-            string rok = "2005";
-            string mieisąc = "11";
-            string dzień = "6";
-
-            int[] czasy = { int.Parse(rok), int.Parse(mieisąc), int.Parse(dzień)};
-
-            wiek = wiek.AddYears(now.Year - czasy[0]);
-            wiek = wiek.AddMonths(now.Month - czasy[1]);
-            wiek = wiek.AddDays(now.Day - czasy[2]);
-            #endregion
+            KlientInfo KI = new KlientInfo();
+            Console.WriteLine(KI.ID);
         }
     }
 }

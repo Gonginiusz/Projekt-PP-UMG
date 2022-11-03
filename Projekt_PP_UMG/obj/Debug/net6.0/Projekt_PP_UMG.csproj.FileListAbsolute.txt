@@ -13,3 +13,6 @@ C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\refin
 C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.pdb
 C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.genruntimeconfig.cache
 C:\Users\piokn\source\repos\Projekt_PP_UMG\Projekt_PP_UMG\obj\Debug\net6.0\ref\Projekt_PP_UMG.dll
+C:\Users\Piotr Knasiak\Documents\GitHub\Projekt-PP-UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.dll
+C:\Users\Piotr Knasiak\Documents\GitHub\Projekt-PP-UMG\Projekt_PP_UMG\obj\Debug\net6.0\refint\Projekt_PP_UMG.dll
+C:\Users\Piotr Knasiak\Documents\GitHub\Projekt-PP-UMG\Projekt_PP_UMG\obj\Debug\net6.0\Projekt_PP_UMG.pdb
