@@ -9,7 +9,7 @@ namespace Projekt_PP_UMG
        nazwa folderu klienta - ID klienta
     */
 
-    // ZMIANA
+    // ZMIANAnananana
 
     public static class FunkcjeAutomatyczne
     {
